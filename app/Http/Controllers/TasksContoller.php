@@ -14,11 +14,7 @@ class TasksContoller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-public function lane() {
-        $this->belongsTo('\App\Lane');
 
-        public function tags() {
-        $this->belongsToMany('\App\Tag');
     }
 
     }
@@ -26,18 +22,10 @@ public function lane() {
 
     public function index()
     {
-        //
+        return \App\Task::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -47,7 +35,13 @@ public function lane() {
      */
     public function store(Request $request)
     {
-        //
+        $task = new \App\Task;
+        $task->lane_id = $request->lane_id;
+        $task->title = $request->title;
+        $task->save();
+        return $task;
+
+
     }
 
     /**
@@ -58,19 +52,10 @@ public function lane() {
      */
     public function show($id)
     {
-        //
+        return \App\Task::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+       
 
     /**
      * Update the specified resource in storage.
@@ -81,7 +66,13 @@ public function lane() {
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = \App\Task::find($id);
+        $task->lane_id = $request->lane_id;
+        $task->title = $request->title;
+        $task->save();
+
+        return $task;
+
     }
 
     /**
@@ -92,6 +83,10 @@ public function lane() {
      */
     public function destroy($id)
     {
-        //
+        $task = \App\Task::find($id);
+        $task->delete();
+
+        return $task;
+
     }
 }

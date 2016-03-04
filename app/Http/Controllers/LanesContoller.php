@@ -28,14 +28,14 @@ class LanesContoller extends Controller
      * @return \Illuminate\Http\Response
      */
 
-        public function tasks () {
-    $this->hasMany('\App\Task');
-    }
-
-
+   
     public function store(Request $request)
     {
-        
+        $lane = new \App\Lane;
+        $lane->name = $request->name;
+        $lane->save();
+        return $lane;
+
     }
 
     /**
@@ -74,6 +74,9 @@ class LanesContoller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lane = \App\Lane::find($id);
+        $lane->delete();
+        return $lane;
+
     }
 }
