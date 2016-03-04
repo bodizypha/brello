@@ -14,6 +14,10 @@ class TagsContoller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function tasks() {
+    $this->belongsToMany('\App\Task');
+    }
+
     public function index()
     {
         //

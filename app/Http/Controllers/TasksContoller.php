@@ -14,6 +14,16 @@ class TasksContoller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+public function lane() {
+        $this->belongsTo('\App\Lane');
+
+        public function tags() {
+        $this->belongsToMany('\App\Tag');
+    }
+
+    }
+
+
     public function index()
     {
         //

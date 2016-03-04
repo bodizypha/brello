@@ -27,9 +27,15 @@ class LanesContoller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+        public function tasks () {
+    $this->hasMany('\App\Task');
+    }
+
+
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
