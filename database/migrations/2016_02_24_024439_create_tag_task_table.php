@@ -12,7 +12,7 @@ class CreateTagTaskTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_task', function (Blueprint $table) {
+        Schema::create('tag_task', function (Blueprint$table) {
             $table->increments('id');
             $table->timestamps();
         });

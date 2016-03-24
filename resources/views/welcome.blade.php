@@ -41,5 +41,18 @@
                 <div class="title">Laravel 5</div>
             </div>
         </div>
+        <script text="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+       <script text="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+       <script text="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.2/backbone-min.js"></script>
+       <script>
+           var LaneModel=Backbone.Model.extend({
+            urlRoot:"/lanes"
+           })
+           var LanesCollection=Backbone.Collection.extend({
+            url:"/lanes",
+            model:LaneModel
+           })
+
+       </script>
     </body>
 </html>
